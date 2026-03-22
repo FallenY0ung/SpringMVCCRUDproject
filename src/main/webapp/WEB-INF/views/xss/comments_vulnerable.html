@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Stored XSS (vulnerable)</title>
+</head>
+<body>
+<h2>Stored XSS (уязвимый)</h2>
+
+<form th:action="@{/xss/comments/vulnerable/add}" method="post">
+    <textarea name="text" rows="3" cols="40" placeholder="Комментарий"></textarea>
+    <button type="submit">save</button>
+</form>
+
+<ul>
+    <li th:each="c : ${comments}">
+        <!-- УЯЗВИМО: вставка сырого HTML -->
+        <span th:utext="${c}"></span>
+    </li>
+</ul>
+
+<p>Try save:
+    <code>&lt;script&gt;alert('stored XSS')&lt;/script&gt;</code>
+</p>
+
+</body>
+</html>

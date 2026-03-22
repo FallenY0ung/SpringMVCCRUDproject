@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Reflected XSS (safe)</title>
+</head>
+<body>
+<h2>Reflected XSS (защищённый)</h2>
+
+<form th:action="@{/xss/reflected-safe}" method="get">
+  <input type="text" name="q" placeholder="Введите текст">
+  <button type="submit">send</button>
+</form>
+
+<p>Вы ввели (экранировано):
+  <!-- безопасный вывод -->
+  <span th:text="${query}"></span>
+</p>
+
+</body>
+</html>

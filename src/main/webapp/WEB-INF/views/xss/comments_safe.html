@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Stored XSS (safe)</title>
+</head>
+<body>
+<h2>Stored XSS (защищённый)</h2>
+
+<form th:action="@{/xss/comments/safe/add}" method="post">
+  <textarea name="text" rows="3" cols="40" placeholder="Комментарий"></textarea>
+  <button type="submit">save</button>
+</form>
+
+<ul>
+  <li th:each="c : ${comments}">
+    <!-- безопасный вывод -->
+    <span th:text="${c}"></span>
+  </li>
+</ul>
+
+</body>
+</html>
