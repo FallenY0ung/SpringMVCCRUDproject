@@ -5,19 +5,19 @@
   <title>Reflected XSS (vulnerable)</title>
 </head>
 <body>
-<h2>Reflected XSS (уязвимый)</h2>
+<h2>Reflected XSS (protected)</h2>
 
 <form th:action="@{/xss/reflected}" method="get">
   <input type="text" name="q" placeholder="Введите текст">
   <button type="submit">send</button>
 </form>
 
-<p>Вы ввели (отражено):
+<p>You entered (reflected):
   <!-- УЯЗВИМО: raw HTML из пользователя -->
   <span th:utext="${query}"></span>
 </p>
 
-<p>Попробуй payload:
+<p>Try payload:
   <code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code>
 </p>
 

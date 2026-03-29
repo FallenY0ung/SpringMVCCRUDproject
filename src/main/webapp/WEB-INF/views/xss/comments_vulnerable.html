@@ -5,7 +5,7 @@
     <title>Stored XSS (vulnerable)</title>
 </head>
 <body>
-<h2>Stored XSS (уязвимый)</h2>
+<h2>Stored XSS (not-protected)</h2>
 
 <form th:action="@{/xss/comments/vulnerable/add}" method="post">
     <textarea name="text" rows="3" cols="40" placeholder="Комментарий"></textarea>

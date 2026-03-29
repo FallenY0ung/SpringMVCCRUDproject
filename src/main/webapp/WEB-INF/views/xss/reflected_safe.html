@@ -5,14 +5,14 @@
   <title>Reflected XSS (safe)</title>
 </head>
 <body>
-<h2>Reflected XSS (защищённый)</h2>
+<h2>Reflected XSS (protected)</h2>
 
 <form th:action="@{/xss/reflected-safe}" method="get">
   <input type="text" name="q" placeholder="Введите текст">
   <button type="submit">send</button>
 </form>
 
-<p>Вы ввели (экранировано):
+<p>You entered (Shielded):
   <!-- безопасный вывод -->
   <span th:text="${query}"></span>
 </p>
